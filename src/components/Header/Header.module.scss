@@ -1,18 +1,18 @@
 .header {
-    padding: 10px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 5vh;
+	padding: 10px;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	height: 5vh;
 
-    background-color: orange;
+	background-color: orange;
 
-    a {
-        text-decoration: none;
-        color: black;
+	a {
+		text-decoration: none;
+		color: black;
 
-        &:hover {
-            color: rgb(63, 50, 240);
-        }
-    }
+		&:hover {
+			color: rgb(63, 50, 240);
+		}
+	}
 }

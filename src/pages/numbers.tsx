@@ -1,8 +1,7 @@
 export default function Numbers() {
-    
-    return (
-        <>
-            <h1>Numbers</h1>
-        </>
-    )
+	return (
+		<>
+			<h1>Numbers</h1>
+		</>
+	);
 }

@@ -1,18 +1,16 @@
-import Header from "./Header/Header"
-import { ReactNode } from "react";
-import Container from "./Container/Container";
+import Header from './Header/Header';
+import { ReactNode } from 'react';
+import Container from './Container/Container';
 
 interface LayoutProps {
-    children?: ReactNode
+	children?: ReactNode;
 }
 
-export default function Layout ({children}: LayoutProps) {
-    return (
-        <>
-            <Header />
-            <Container>
-                {children}
-            </Container>
-        </>
-    )
+export default function Layout({ children }: LayoutProps) {
+	return (
+		<>
+			<Header />
+			<Container>{children}</Container>
+		</>
+	);
 }
