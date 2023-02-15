@@ -1,6 +1,6 @@
 import { Message } from '@/types';
 import axios from 'axios';
-import { FormEvent, useState } from 'react';
+import { useState } from 'react';
 
 export const getStaticProps = async () => {
 	const { data } = await axios.get(
@@ -19,7 +19,7 @@ interface MessagesProps {
 export default function Messages({ messages }: MessagesProps) {
 	const [value, setValue] = useState('');
 
-	const submitHandler = (e: FormEvent) => {
+	const submitHandler = () => {
 		axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/messages/add`, {
 			text: value,
 		});
@@ -28,7 +28,7 @@ export default function Messages({ messages }: MessagesProps) {
 	return (
 		<>
 			<h1 className="title">Messages</h1>
-			<form onSubmit={e => submitHandler(e)} className={'form'}>
+			<form onSubmit={() => submitHandler()} className={'form'}>
 				<div>Разместить сообщение:</div>
 				<input value={value} onChange={e => setValue(e.target.value)} />
 			</form>
