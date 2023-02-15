@@ -3,13 +3,19 @@ import axios from 'axios';
 import { useState } from 'react';
 
 export const getStaticProps = async () => {
-	const { data } = await axios.get(
-		`${process.env.NEXT_PUBLIC_BASE_URL}/messages`
-	);
+	try {
+		const { data } = await axios.get(
+			`${process.env.NEXT_PUBLIC_BASE_URL}/messages`
+		);
 
-	return {
-		props: { messages: data.reverse() },
-	};
+		return {
+			props: { messages: data.reverse() },
+		};
+	} catch {
+		return {
+			props: { messages: null },
+		};
+	}
 };
 
 interface MessagesProps {
