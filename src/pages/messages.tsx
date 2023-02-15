@@ -26,9 +26,11 @@ export default function Messages({ messages }: MessagesProps) {
 	const [value, setValue] = useState('');
 
 	const submitHandler = () => {
-		axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/messages/add`, {
-			text: value,
-		});
+		try {
+			axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/messages/add`, {
+				text: value,
+			});
+		} catch {}
 	};
 
 	return (

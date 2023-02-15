@@ -8,24 +8,28 @@ export default function Numbers() {
 
 	useEffect(() => {
 		(async () => {
-			const { data } = await axios.get(
-				`${process.env.NEXT_PUBLIC_BASE_URL}/numbers`
-			);
-			setNumbers(data.reverse());
+			try {
+				const { data } = await axios.get(
+					`${process.env.NEXT_PUBLIC_BASE_URL}/numbers`
+				);
+				setNumbers(data.reverse());
+			} catch {}
 		})();
 	}, []);
 
 	const submitHandler = async (e: FormEvent) => {
 		e.preventDefault();
-		const { data } = await axios.post(
-			`${process.env.NEXT_PUBLIC_BASE_URL}/numbers/add`,
-			{
-				number: parseInt(value),
-			}
-		);
+		try {
+			const { data } = await axios.post(
+				`${process.env.NEXT_PUBLIC_BASE_URL}/numbers/add`,
+				{
+					number: parseInt(value),
+				}
+			);
 
-		setNumbers(prev => [data, ...prev]);
-		setValue('');
+			setNumbers(prev => [data, ...prev]);
+			setValue('');
+		} catch {}
 	};
 
 	return (
