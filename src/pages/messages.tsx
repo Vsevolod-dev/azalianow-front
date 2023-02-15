@@ -40,14 +40,15 @@ export default function Messages({ messages }: MessagesProps) {
 				<div>Разместить сообщение:</div>
 				<input value={value} onChange={e => setValue(e.target.value)} />
 			</form>
-			{messages.map(message => {
-				return (
-					<div key={message.id} className={'entity__container'}>
-						<div>Автор: {message.author}</div>
-						<div>{message.text}</div>
-					</div>
-				);
-			})}
+			{messages &&
+				messages.map(message => {
+					return (
+						<div key={message.id} className={'entity__container'}>
+							<div>Автор: {message.author}</div>
+							<div>{message.text}</div>
+						</div>
+					);
+				})}
 		</>
 	);
 }
